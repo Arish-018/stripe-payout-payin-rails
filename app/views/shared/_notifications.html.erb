@@ -1,0 +1,26 @@
+<ul class="dropdown-menu notification-dropdown-menu dropdown-menu-right" >
+  <li class="notification-head text-light bg-dark">
+    <div class="d-flex justify-content-between">
+      <a>Notifications (<%= current_user.notifications.where(read_at: nil).count%>)</a>
+      <a href="" class="text-light">Mark all as read</a>
+  </li>
+  <%- current_user.notifications.each do |notification|%>
+    <li class="notification-box">
+    <div class="d-flex justify-content-between%>">
+      <div class="col-3 text-center">
+        <%= image_tag notification.recipient.profile.avatar.url, class: "w-50 rounded-circle "%>
+      </div>
+      <div class="col-lg-8 col-sm-8 col-8">
+        <strong class="text-info"><%= notification.recipient.publisher_name%></strong>
+        <div>
+          <%=notification.to_notification.message%>
+        </div>
+        <small><%= time_ago_in_words(notification.created_at) %> ago</small>
+      </div>
+    </div>
+    </li>
+  <%end%>
+  <li class="notification-footer bg-dark text-center">
+    <a href="" class="text-light">View All</a>
+  </li>
+</ul>

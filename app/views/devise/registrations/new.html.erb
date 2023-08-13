@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center py-4">
+  <div class="col-md-4">
+    <div class="card card-outline-secondary shadow">
+      <div class="card-header bg-dark text-center py-2 text-white">
+        <%= t(:register_get_paid) %>
+      </div>
+      <div class="card-body">
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <div class="form-group">
+          <%= f.label :email %><br />
+          <%= f.text_field :email, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="form-group">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+
+        <div class="form-group d-flex justify-content-center">
+          <%= f.submit "Get Involve", class: 'btn btn-block btn-sm btn-success' %>
+        </div>
+        <%- if controller_name != 'sessions' %>
+          <div class="d-flex justify-content-end py-2">
+            <%= link_to "Already have an account?", new_session_path(resource_name) %>
+          </div>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

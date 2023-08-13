@@ -1,0 +1,6 @@
+<%if flash.present?%>
+  <% type = flash[:alert] ? 'danger' : 'success' %>
+  <div class="alert alert-<%=type%>">
+    <%=flash[:alert]%>
+  </div>
+<%end%>
