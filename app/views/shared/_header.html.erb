@@ -11,7 +11,7 @@
     <%=render partial: 'shared/nav_links'%>
     <div class="navbar-nav ml-auto action-buttons">
       <% unless user_signed_in?%>
-        <%= link_to t(:get_involve), new_user_session_path, class: "btn btn-outline-primary"%>
+        <%= link_to t(:get_paid), new_user_session_path, class: "btn btn-outline-primary"%>
       <%end%>
       <% if user_signed_in?%>
         <ul class="nav navbar-nav justify-content-end">
